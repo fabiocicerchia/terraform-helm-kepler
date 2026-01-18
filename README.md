@@ -16,7 +16,7 @@ Kepler tracks environmental impact and power consumption of your Kubernetes clus
 
 ```hcl
 module "kepler" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-kepler-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-kepler-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   release_name    = "kepler-operator"
@@ -62,7 +62,7 @@ This module automatically deploys:
 
 ```hcl
 module "kepler" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-kepler-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-kepler-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
 }
@@ -72,7 +72,7 @@ module "kepler" {
 
 ```hcl
 module "kepler" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-kepler-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-kepler-module.git?ref=main"
 
   kubeconfig_path     = "~/.kube/config"
   deploy_powermonitor = false
@@ -83,7 +83,7 @@ module "kepler" {
 
 ```hcl
 module "kepler" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-kepler-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-kepler-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   chart_version   = "1.0.0"
