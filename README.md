@@ -18,7 +18,6 @@ Kepler tracks environmental impact and power consumption of your Kubernetes clus
 module "kepler" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-kepler.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   release_name    = "kepler-operator"
   namespace       = "kepler-operator"
 }
@@ -28,7 +27,6 @@ module "kepler" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| `kubeconfig_path` | Path to the kubeconfig file | `string` | `"~/.kube/config"` | no |
 | `release_name` | Helm release name for Kepler Operator | `string` | `"kepler-operator"` | no |
 | `namespace` | Kubernetes namespace for Kepler Operator | `string` | `"kepler-operator"` | no |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
@@ -63,8 +61,6 @@ This module automatically deploys:
 ```hcl
 module "kepler" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-kepler.git?ref=main"
-
-  kubeconfig_path = "~/.kube/config"
 }
 ```
 
@@ -74,7 +70,6 @@ module "kepler" {
 module "kepler" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-kepler.git?ref=main"
 
-  kubeconfig_path     = "~/.kube/config"
   deploy_powermonitor = false
 }
 ```
@@ -85,7 +80,6 @@ module "kepler" {
 module "kepler" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-kepler.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   chart_version   = "1.0.0"
 }
 ```
