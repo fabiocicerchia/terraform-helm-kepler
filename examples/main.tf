@@ -11,9 +11,9 @@ terraform {
 module "kepler" {
   source = "../"
 
-  release_name    = "kepler"
-  namespace       = "kepler-system"
-  chart_version   = ""
+  release_name  = "kepler"
+  namespace     = "kepler-system"
+  chart_version = ""
 
   values = yamlencode({})
 }
