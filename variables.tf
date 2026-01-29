@@ -21,9 +21,3 @@ variable "values" {
   type        = any
   default     = {}
 }
-
-variable "deploy_powermonitor" {
-  description = "Deploy the Kepler PowerMonitor resource"
-  type        = bool
-  default     = true
-}

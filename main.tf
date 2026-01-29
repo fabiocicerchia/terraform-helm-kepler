@@ -11,12 +11,3 @@ resource "helm_release" "kepler_operator" {
 
   values = [yamlencode(var.values)]
 }
-
-resource "null_resource" "deploy_powermonitor" {
-  depends_on = [helm_release.kepler_operator]
-  count      = var.deploy_powermonitor ? 1 : 0
-
-  provisioner "local-exec" {
-    command = "kubectl apply -f https://raw.githubusercontent.com/sustainable-computing-io/kepler-operator/v1alpha1/config/samples/kepler.system_v1alpha1_powermonitor.yaml"
-  }
-}

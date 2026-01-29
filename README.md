@@ -55,7 +55,6 @@ module "kepler" {
 | `namespace` | Kubernetes namespace for Kepler Operator | `string` | `"kepler-operator"` | no |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
 | `values` | Helm values for Kepler Operator deployment | `any` | `{}` | no |
-| `deploy_powermonitor` | Deploy the Kepler PowerMonitor resource | `bool` | `true` | no |
 
 ## Outputs
 
@@ -76,7 +75,6 @@ module "kepler" {
 
 This module automatically deploys:
 - Cert Manager v1.18.2 (required for Kepler Operator)
-- PowerMonitor resource (optional, controllable via `deploy_powermonitor`)
 
 ## Usage
 
@@ -93,8 +91,6 @@ module "kepler" {
 ```hcl
 module "kepler" {
   source = "fabiocicerchia/kepler/helm"
-
-  deploy_powermonitor = false
 }
 ```
 
