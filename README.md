@@ -49,20 +49,20 @@ module "kepler" {
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| `release_name` | Helm release name for Kepler Operator | `string` | `"kepler-operator"` | no |
-| `namespace` | Kubernetes namespace for Kepler Operator | `string` | `"kepler-operator"` | no |
-| `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
-| `values` | Helm values for Kepler Operator deployment | `any` | `{}` | no |
+| Name            | Description                                  | Type     | Default             | Required |
+| --------------- | -------------------------------------------- | -------- | ------------------- | -------- |
+| `release_name`  | Helm release name for Kepler Operator        | `string` | `"kepler-operator"` | no       |
+| `namespace`     | Kubernetes namespace for Kepler Operator     | `string` | `"kepler-operator"` | no       |
+| `chart_version` | Helm chart version (empty string for latest) | `string` | `""`                | no       |
+| `values`        | Helm values for Kepler Operator deployment   | `any`    | `{}`                | no       |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| `namespace` | Kubernetes namespace where Kepler is deployed |
-| `release_name` | Helm release name of Kepler Operator |
-| `chart_version` | Chart version of Kepler deployment |
+| Name            | Description                                   |
+| --------------- | --------------------------------------------- |
+| `namespace`     | Kubernetes namespace where Kepler is deployed |
+| `release_name`  | Helm release name of Kepler Operator          |
+| `chart_version` | Chart version of Kepler deployment            |
 
 ## Requirements
 
