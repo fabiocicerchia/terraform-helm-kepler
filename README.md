@@ -23,8 +23,7 @@ Kepler tracks environmental impact and power consumption of your Kubernetes clus
 - **Power Profiling**: Track power consumption at container and node levels
 - **Environmental Metrics**: Monitor carbon emissions and energy usage
 - **Operator Pattern**: Uses Kepler Operator for deployment
-- **PowerMonitor Resources**: Optional PowerMonitor for detailed power metrics
-- **Cert Manager Integration**: Automatically deploys cert-manager as a dependency
+- **Thin wrapper**: one `helm_release` for the operator, with `values` passed straight through
 
 ## Dependencies
 
@@ -73,8 +72,9 @@ module "kepler" {
 
 ## Dependencies
 
-This module automatically deploys:
-- Cert Manager v1.18.2 (required for Kepler Operator)
+This module deploys the Kepler Operator only. Install cert-manager
+(v1.18.2 or later) and Prometheus **before** applying it — see
+[Dependencies](#dependencies) above.
 
 ## Usage
 
