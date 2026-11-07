@@ -4,7 +4,7 @@ Feature: Trying Kepler with the ready-made example
 
   Background:
     Given the operator has a Kubernetes cluster reachable by the Helm provider
-    And the operator applies the example configuration shipped with the module
+    And the operator has the example configuration shipped with the module
 
   @id:deployment-outputs.usage-example.001 @rule:kepler.usage-example.surfaces-release-details @inferred @source:examples/outputs.tf#kepler_namespace
   Scenario: The example prints the namespace, release name and chart version that were deployed

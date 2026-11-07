@@ -12,7 +12,7 @@ Feature: Pinning the Kepler chart version
     Then the Kepler Operator chart installed is <installed>
 
     Examples:
-      | chart_version | installed                    |
-      | nothing       | the latest published version |
-      | "" (empty)    | the latest published version |
-      | "0.21.0"      | version 0.21.0               |
+      | chart_version | installed                 |
+      | nothing       | the latest stable version |
+      | "" (empty)    | the latest stable version |
+      | "0.21.0"      | version 0.21.0            |

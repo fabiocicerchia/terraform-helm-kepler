@@ -3,7 +3,7 @@ Feature: Reporting the deployed Kepler release
   Gives the operator's calling Terraform configuration the namespace, release name and chart version Kepler actually landed with, so downstream resources and dashboards can refer to it without hard-coding.
 
   Background:
-    Given the operator calls the Kepler module from their Terraform configuration
+    Given the operator calls the Kepler module from their Terraform or OpenTofu configuration
     And the Kepler Operator Helm release has been applied
 
   @id:deployment-outputs.release-details.001 @rule:kepler.outputs.reports-namespace-and-release-name @inferred @source:outputs.tf#namespace
@@ -30,4 +30,3 @@ Feature: Reporting the deployed Kepler release
     And the latest Kepler Operator chart in the registry is "0.21.1"
     When the operator reads the module outputs
     Then the "chart_version" output is "0.21.1"
-    And the "chart_version" output is not empty
