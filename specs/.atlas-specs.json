@@ -1,0 +1,503 @@
+{
+ "excluded": {
+  "examples/examples": [
+   {
+    "candidate": "Example points at the module with a relative source path (../)",
+    "covered_by": "",
+    "reason": "TECH_DEVTOOLING",
+    "source": "examples/main.tf#module.kepler"
+   },
+   {
+    "candidate": "Release replacement, dependency refresh and OCI registry location used when the example deploys",
+    "covered_by": "",
+    "reason": "TECH_INFRA",
+    "source": "main.tf#helm_release.kepler_operator"
+   },
+   {
+    "candidate": "Output descriptions text",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "examples/outputs.tf#kepler_namespace"
+   },
+   {
+    "candidate": "The example deploys a release named kepler into kepler-system at the latest chart version",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/main.tf#module.kepler"
+   },
+   {
+    "candidate": "The example's empty chart values reach the chart as the text \"{}\" rather than as no values",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/main.tf#module.kepler"
+   }
+  ],
+  "examples/outputs": [
+   {
+    "candidate": "Example output descriptions and naming conventions (documented, snake_case) checked by lint",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "examples/outputs.tf"
+   }
+  ],
+  "terraform-helm-kepler/makefile": [
+   {
+    "candidate": "make setup installs the pre-commit hook",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#setup"
+   },
+   {
+    "candidate": "make install downloads pinned providers without a backend",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#install"
+   },
+   {
+    "candidate": "make lint runs every pre-commit hook on every file",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#lint"
+   },
+   {
+    "candidate": "make format rewrites Terraform sources recursively to canonical form",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#format"
+   },
+   {
+    "candidate": "make analyze runs tflint recursively when it is installed",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#analyze"
+   },
+   {
+    "candidate": "test suppresses terraform init output",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Makefile#test"
+   }
+  ],
+  "terraform-helm-kepler/outputs": [
+   {
+    "candidate": "Output descriptions text (\"Kubernetes namespace where Kepler is deployed\", etc.)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "outputs.tf#namespace"
+   },
+   {
+    "candidate": "Example root configuration re-exposes the outputs as kepler_namespace, kepler_release_name, kepler_chart_version",
+    "covered_by": "kepler.outputs.reports-namespace-and-release-name",
+    "reason": "DUPLICATE_OF",
+    "source": "examples/outputs.tf#kepler_namespace"
+   },
+   {
+    "candidate": "Outputs are taken from the helm_release resource attributes rather than echoed from the input variables",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "outputs.tf#release_name"
+   }
+  ],
+  "terraform-helm-kepler/terraform-helm-kepler": [
+   {
+    "candidate": "Module outputs (namespace, release_name, chart_version)",
+    "covered_by": "outside this module's source files (main.tf); belongs to deployment-outputs/release-details",
+    "reason": "UNVERIFIABLE",
+    "source": "outputs.tf"
+   },
+   {
+    "candidate": "Terraform/OpenTofu and Helm provider version constraints",
+    "covered_by": "developer-tooling/compatibility, outside main.tf",
+    "reason": "TECH_BUILD",
+    "source": "versions.tf"
+   },
+   {
+    "candidate": "Values are encoded with yamlencode as a single values document",
+    "covered_by": "kepler.chart-values.passed-through-as-yaml",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "main.tf#helm_release.kepler_operator"
+   },
+   {
+    "candidate": "Kepler Operator is installed from the official Kepler chart registry",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.kepler_operator"
+   },
+   {
+    "candidate": "Kepler is placed in the chosen namespace, which is created if missing",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.kepler_operator"
+   },
+   {
+    "candidate": "A pinned chart version is installed, otherwise the latest is used",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.kepler_operator"
+   },
+   {
+    "candidate": "The Helm release is named kepler-operator unless the operator names it",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.kepler_operator"
+   },
+   {
+    "candidate": "Operator-supplied chart values reach the Kepler chart unchanged",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.kepler_operator"
+   },
+   {
+    "candidate": "Installing reuses a release name left behind by an earlier uninstalled release",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.kepler_operator"
+   }
+  ],
+  "terraform-helm-kepler/tflint": [
+   {
+    "candidate": "TFLint terraform plugin enabled with the 'all' preset",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#plugin \"terraform\""
+   },
+   {
+    "candidate": "Lint requires a declared Terraform required_version",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_required_version\""
+   },
+   {
+    "candidate": "Lint requires every provider to be declared in required_providers",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_required_providers\""
+   },
+   {
+    "candidate": "Lint requires every variable to have a description",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_documented_variables\""
+   },
+   {
+    "candidate": "Lint requires every output to have a description",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_documented_outputs\""
+   },
+   {
+    "candidate": "Lint requires every variable to declare a type",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_typed_variables\""
+   },
+   {
+    "candidate": "Lint enforces snake_case naming for blocks",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_naming_convention\""
+   },
+   {
+    "candidate": "Lint flags unused variables, locals and data sources",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_unused_declarations\""
+   },
+   {
+    "candidate": "Lint requires module sources to be pinned to a version",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_module_pinned_source\""
+   }
+  ],
+  "terraform-helm-kepler/variables": [
+   {
+    "candidate": "Every input declares a description and type",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "variables.tf"
+   },
+   {
+    "candidate": "values input accepts non-map types (type any) without module-level validation",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "variables.tf#values"
+   },
+   {
+    "candidate": "chart_version has no format validation (e.g. whitespace-only strings)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "variables.tf#chart_version"
+   },
+   {
+    "candidate": "All inputs are optional so the module applies with no arguments",
+    "covered_by": "kepler.release.name-defaults-to-kepler-operator",
+    "reason": "DUPLICATE_OF",
+    "source": "variables.tf"
+   }
+  ],
+  "terraform-helm-kepler/versions": [
+   {
+    "candidate": "Helm provider sourced from the hashicorp/helm registry address",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "versions.tf#terraform"
+   }
+  ]
+ },
+ "lifted": {
+  "examples/examples": [],
+  "examples/outputs": [],
+  "terraform-helm-kepler/makefile": [],
+  "terraform-helm-kepler/outputs": [],
+  "terraform-helm-kepler/terraform-helm-kepler": [],
+  "terraform-helm-kepler/tflint": [],
+  "terraform-helm-kepler/variables": [],
+  "terraform-helm-kepler/versions": []
+ },
+ "retired": [],
+ "scenarios": {
+  "configuration.chart-values.001": {
+   "file": "specs/configuration/chart-values/chart-values.feature",
+   "fingerprint": "116503ac734b",
+   "human": false,
+   "rule": "kepler.chart.values-passed-through-unchanged",
+   "source": "variables.tf#values",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "configuration.release-naming.001": {
+   "file": "specs/configuration/release-naming/release-naming.feature",
+   "fingerprint": "b1b525c0ef3b",
+   "human": false,
+   "rule": "kepler.release.name-defaults-to-kepler-operator",
+   "source": "variables.tf#release_name",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-outputs.release-details.001": {
+   "file": "specs/deployment-outputs/release-details/release-details-outputs.feature",
+   "fingerprint": "e415dc220a4e",
+   "human": false,
+   "rule": "kepler.outputs.reports-namespace-and-release-name",
+   "source": "outputs.tf#namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-outputs.release-details.002": {
+   "file": "specs/deployment-outputs/release-details/release-details-outputs.feature",
+   "fingerprint": "d821392dd8f7",
+   "human": false,
+   "rule": "kepler.outputs.reports-pinned-chart-version",
+   "source": "outputs.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-outputs.release-details.003": {
+   "file": "specs/deployment-outputs/release-details/release-details-outputs.feature",
+   "fingerprint": "d821392dd8f7",
+   "human": false,
+   "rule": "kepler.outputs.reports-resolved-latest-chart-version",
+   "source": "outputs.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-outputs.usage-example.001": {
+   "file": "specs/deployment-outputs/usage-example/usage-example.feature",
+   "fingerprint": "3569a9fe41ca",
+   "human": false,
+   "rule": "kepler.usage-example.surfaces-release-details",
+   "source": "examples/outputs.tf#kepler_namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-outputs.usage-example.002": {
+   "file": "specs/deployment-outputs/usage-example/usage-example.feature",
+   "fingerprint": "d9b0ccb746cd",
+   "human": false,
+   "rule": "kepler.usage-example.requires-helm-provider-2x",
+   "source": "examples/main.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment-outputs.usage-example.003": {
+   "file": "specs/deployment-outputs/usage-example/example-release-outputs.feature",
+   "fingerprint": "3569a9fe41ca",
+   "human": false,
+   "rule": "deployment-outputs.usage-example.surfaces-release-details",
+   "source": "examples/outputs.tf#kepler_namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.compatibility.001": {
+   "file": "specs/developer-tooling/compatibility/supported-toolchain-versions.feature",
+   "fingerprint": "c4352a3c0676",
+   "human": false,
+   "rule": "compatibility.toolchain.minimum-terraform-version",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.compatibility.002": {
+   "file": "specs/developer-tooling/compatibility/supported-toolchain-versions.feature",
+   "fingerprint": "c4352a3c0676",
+   "human": false,
+   "rule": "compatibility.toolchain.minimum-helm-provider-version",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.make-commands.001": {
+   "file": "specs/developer-tooling/make-commands/make-verbs.feature",
+   "fingerprint": "517de792f113",
+   "human": false,
+   "rule": "tooling.make.bare-make-lists-verbs",
+   "source": "Makefile#help",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.make-commands.002": {
+   "file": "specs/developer-tooling/make-commands/make-verbs.feature",
+   "fingerprint": "4d16ff5f8f37",
+   "human": false,
+   "rule": "tooling.make.not-applicable-verbs-explain-themselves",
+   "source": "Makefile#build",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.make-commands.003": {
+   "file": "specs/developer-tooling/make-commands/make-verbs.feature",
+   "fingerprint": "c5311b237c3f",
+   "human": false,
+   "rule": "tooling.make.analyze-refuses-without-tflint",
+   "source": "Makefile#analyze",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.make-commands.004": {
+   "file": "specs/developer-tooling/make-commands/make-verbs.feature",
+   "fingerprint": "8145e195cde0",
+   "human": false,
+   "rule": "tooling.make.test-validates-module-and-example",
+   "source": "Makefile#test",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kepler-deployment.chart-versioning.001": {
+   "file": "specs/kepler-deployment/chart-versioning/chart-versioning.feature",
+   "fingerprint": "7a807cddaca8",
+   "human": false,
+   "rule": "kepler.chart.empty-version-means-latest",
+   "source": "variables.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kepler-deployment.namespace-placement.001": {
+   "file": "specs/kepler-deployment/namespace-placement/namespace-placement.feature",
+   "fingerprint": "33ce56231055",
+   "human": false,
+   "rule": "kepler.namespace.defaults-to-kepler-operator",
+   "source": "variables.tf#namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  }
+ },
+ "taxonomy": {
+  "domains": [
+   {
+    "areas": [
+     {
+      "description": "Installs or replaces the Kepler Operator Helm release from the official OCI chart registry, refreshing chart dependencies.",
+      "slug": "operator-release",
+      "title": "Operator release"
+     },
+     {
+      "description": "Chooses the Kubernetes namespace for Kepler and creates it automatically if it does not exist.",
+      "slug": "namespace-placement",
+      "title": "Namespace placement"
+     },
+     {
+      "description": "Pins a specific Kepler chart version or falls back to the latest when none is given.",
+      "slug": "chart-versioning",
+      "title": "Chart versioning"
+     }
+    ],
+    "description": "Installing the Kepler energy-monitoring operator onto a Kubernetes cluster as a Helm release.",
+    "slug": "kepler-deployment",
+    "title": "Kepler Deployment"
+   },
+   {
+    "areas": [
+     {
+      "description": "Names the Helm release, with a sensible default of kepler-operator.",
+      "slug": "release-naming",
+      "title": "Release naming"
+     },
+     {
+      "description": "Passes arbitrary Helm values through to the Kepler chart, encoded as YAML.",
+      "slug": "chart-values",
+      "title": "Chart values"
+     }
+    ],
+    "description": "The inputs a consumer sets to tailor the Kepler installation.",
+    "slug": "configuration",
+    "title": "Configuration"
+   },
+   {
+    "areas": [
+     {
+      "description": "Exposes the deployed namespace, release name and chart version to the calling configuration.",
+      "slug": "release-details",
+      "title": "Release details"
+     },
+     {
+      "description": "A ready-made root configuration showing how to call the module and surface its outputs.",
+      "slug": "usage-example",
+      "title": "Usage example"
+     }
+    ],
+    "description": "What the module reports back after Kepler is deployed, for use by callers and examples.",
+    "slug": "deployment-outputs",
+    "title": "Deployment Outputs"
+   },
+   {
+    "areas": [
+     {
+      "description": "Standard make verbs for setup, provider install, formatting, validation, linting and declared no-ops like build and run.",
+      "slug": "make-commands",
+      "title": "Make commands"
+     },
+     {
+      "description": "TFLint rules enforcing documented and typed variables and outputs, snake_case naming, pinned sources and no unused declarations.",
+      "slug": "lint-rules",
+      "title": "Lint rules"
+     },
+     {
+      "description": "Declares the supported Terraform/OpenTofu versions and the required Helm provider version.",
+      "slug": "compatibility",
+      "title": "Compatibility"
+     }
+    ],
+    "description": "Build, validation and quality checks for maintaining the module.",
+    "slug": "developer-tooling",
+    "title": "Developer tooling"
+   }
+  ]
+ }
+}
