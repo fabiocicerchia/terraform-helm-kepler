@@ -255,7 +255,11 @@
   "terraform-helm-kepler/variables": [],
   "terraform-helm-kepler/versions": []
  },
- "retired": [],
+ "retired": [
+  "deployment-outputs.usage-example.001",
+  "deployment-outputs.release-details.003",
+  "kepler-deployment.namespace-placement.001"
+ ],
  "scenarios": {
   "configuration.chart-values.001": {
    "file": "specs/configuration/chart-values/chart-values.feature",
@@ -293,26 +297,6 @@
    "human": false,
    "rule": "kepler.outputs.reports-pinned-chart-version",
    "source": "outputs.tf#chart_version",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "deployment-outputs.release-details.003": {
-   "file": "specs/deployment-outputs/release-details/release-details-outputs.feature",
-   "fingerprint": "d821392dd8f7",
-   "human": false,
-   "rule": "kepler.outputs.reports-resolved-latest-chart-version",
-   "source": "outputs.tf#chart_version",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "deployment-outputs.usage-example.001": {
-   "file": "specs/deployment-outputs/usage-example/usage-example.feature",
-   "fingerprint": "3569a9fe41ca",
-   "human": false,
-   "rule": "kepler.usage-example.surfaces-release-details",
-   "source": "examples/outputs.tf#kepler_namespace",
    "status": "inferred",
    "test": "",
    "tests": []
@@ -403,16 +387,6 @@
    "human": false,
    "rule": "kepler.chart.empty-version-means-latest",
    "source": "variables.tf#chart_version",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "kepler-deployment.namespace-placement.001": {
-   "file": "specs/kepler-deployment/namespace-placement/namespace-placement.feature",
-   "fingerprint": "33ce56231055",
-   "human": false,
-   "rule": "kepler.namespace.defaults-to-kepler-operator",
-   "source": "variables.tf#namespace",
    "status": "inferred",
    "test": "",
    "tests": []

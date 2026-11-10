@@ -19,14 +19,13 @@ Feature: Reporting the deployed Kepler release
       | monitoring      | kepler             | monitoring       | kepler              |
 
   @id:deployment-outputs.release-details.002 @rule:kepler.outputs.reports-pinned-chart-version @inferred @source:outputs.tf#chart_version
-  Scenario: A pinned chart version is reported back as the deployed version
-    Given the operator pinned the chart version to "0.21.1"
-    When the operator reads the module outputs
-    Then the "chart_version" output is "0.21.1"
-
-  @id:deployment-outputs.release-details.003 @rule:kepler.outputs.reports-resolved-latest-chart-version @inferred @source:outputs.tf#chart_version
-  Scenario: When no chart version is pinned, the module reports the version Helm actually installed
-    Given the operator left the chart version empty
+  Scenario Outline: The module reports the chart version Helm actually deployed, pinned or resolved
+    Given the operator <pinning>
     And the latest Kepler Operator chart in the registry is "0.21.1"
     When the operator reads the module outputs
-    Then the "chart_version" output is "0.21.1"
+    Then the "chart_version" output is "<reported>"
+
+    Examples:
+      | pinning                                | reported |
+      | pinned the chart version to "0.21.0"   | 0.21.0   |
+      | left the chart version empty           | 0.21.1   |

@@ -7,13 +7,13 @@ Tags: `@verified` a test asserts it · `@inferred` read from the code only · `@
 The inputs a consumer sets to tailor the Kepler installation.
 
 - **Chart values**: [Passing Helm values to the Kepler chart](configuration/chart-values/chart-values.feature) (1)
-- **Release naming**: [Naming the Kepler Helm release](configuration/release-naming/release-naming.feature) (1)
+- **Release naming**: [Naming and placing the Kepler Helm release](configuration/release-naming/release-naming.feature) (1)
 
 ## Deployment Outputs
 What the module reports back after Kepler is deployed, for use by callers and examples.
 
-- **Release details**: [Reporting the deployed Kepler release](deployment-outputs/release-details/release-details-outputs.feature) (3)
-- **Usage example**: [Seeing the deployed Kepler release from the usage example](deployment-outputs/usage-example/example-release-outputs.feature) (1), [Trying Kepler with the ready-made example](deployment-outputs/usage-example/usage-example.feature) (2)
+- **Release details**: [Reporting the deployed Kepler release](deployment-outputs/release-details/release-details-outputs.feature) (2)
+- **Usage example**: [Seeing the deployed Kepler release from the usage example](deployment-outputs/usage-example/example-release-outputs.feature) (1), [Trying Kepler with the ready-made example](deployment-outputs/usage-example/usage-example.feature) (1)
 
 ## Developer tooling
 Build, validation and quality checks for maintaining the module.
@@ -25,4 +25,3 @@ Build, validation and quality checks for maintaining the module.
 Installing the Kepler energy-monitoring operator onto a Kubernetes cluster as a Helm release.
 
 - **Chart versioning**: [Pinning the Kepler chart version](kepler-deployment/chart-versioning/chart-versioning.feature) (1)
-- **Namespace placement**: [Choosing the Kepler namespace](kepler-deployment/namespace-placement/namespace-placement.feature) (1)
